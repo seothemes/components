@@ -6,14 +6,14 @@ A config-based composer package that provides a set of modules to extend Genesis
 
 ## Description
 
-This library contains all of the core functionality and logic, and is the foundation of our config-driven WordPress themes.
+This library contains all of the core logic for our config-driven WordPress themes, such as the [Genesis Starter Theme](https://github.com/seothemes/genesis-starter-theme).
 
 It contains two key classes:
 
 * `Component` to be extended to build other components, and:
 * `Theme` which is responsible for instantiating components and injecting the correct configuration.
 
-The main purpose of the Core is to provide a shareable codebase for commercial Genesis child themes. This is achieved by using configuration-based architecture to separate the theme's reusable logic from it's configuration. Using this approach, we are able to use a single codebase which can be heavily customized by passing in different configs. This project is inspired by the [Genesis Theme Toolkit](https://github.com/gamajo/genesis-theme-toolkit) by Gary Jones and [D2 Core](https://github.com/d2/core) by Craig Simpson, but contains additional functionality specific to commercial themes, including support for older versions of PHP. See the [Genesis Starter Theme](https://github.com/seothemes/genesis-starter-theme) as an example.
+The main purpose of this library is to provide a shareable codebase for commercial Genesis child themes. This is achieved by using configuration-based architecture to separate the theme's reusable logic from it's configuration. Using this approach, we are able to use a single codebase which can be heavily customized by passing in different configs. This project is inspired by the [Genesis Theme Toolkit](https://github.com/gamajo/genesis-theme-toolkit) by Gary Jones and [D2 Core](https://github.com/d2/core) by Craig Simpson, but contains additional functionality specific to commercial themes, including support for older versions of PHP.
 
 ## Requirements
 
@@ -69,7 +69,7 @@ function child_theme_setup() {
 
 ## Structure
 
-The Core follows the [PHP Package Development Standard](https://github.com/php-pds/skeleton_research) folder structure and uses [PSR-4 Autoloading](https://www.php-fig.org/psr/psr-4/).
+Core follows the [PHP Package Development Standard](https://github.com/php-pds/skeleton_research) folder structure and uses [PSR-4 Autoloading](https://www.php-fig.org/psr/psr-4/).
 
 ```sh
 ./
@@ -114,3 +114,7 @@ This project is licensed under the GNU General Public License - see the LICENSE.
 - **Lee Anthony** - [SEO Themes](https://seothemes.com/)
 
 See also the list of [contributors](https://github.com/seothemes/core/graphs/contributors) who participated in this project.
+
+## Special Thanks
+
+[Craig Simpson](https://github.com/d2themes), [Gary Jones](https://github.com/gamajo)
