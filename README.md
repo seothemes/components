@@ -1,6 +1,6 @@
 # Core
 
-[![WordPress](https://img.shields.io/badge/wordpress-4.9.7%20tested-brightgreen.svg)]() [![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg)](https://github.com/seothemes/core/blob/master/LICENSE.md)
+[![WordPress](https://img.shields.io/badge/wordpress-4.9.8%20tested-brightgreen.svg)]() [![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](https://github.com/seothemes/core/blob/master/LICENSE.md)
 
 A config-based composer package that provides a set of modules to extend Genesis child theme development.
 
