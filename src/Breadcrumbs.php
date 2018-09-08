@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\GenesisBreadcrumbs;
  *
- * $d2_genesis_breadcrumbs = [
+ * $core_genesis_breadcrumbs = [
  *     GenesisBreadcrumbs::SEP    => ' → ',
  *     GenesisBreadcrumbs::LABELS => [
  *         GenesisBreadcrumbs::PREFIX => '',
@@ -26,7 +26,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     GenesisBreadcrumbs::class => $d2_genesis_breadcrumbs,
+ *     GenesisBreadcrumbs::class => $core_genesis_breadcrumbs,
  * ];
  * ```
  *

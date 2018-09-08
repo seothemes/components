@@ -21,13 +21,13 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\TextDomain;
  *
- * $d2_textdomain = [
+ * $core_textdomain = [
  *     TextDomain::DOMAIN => 'example-textdomain',
  *     TextDomain::PATH   => get_stylesheet_directory() . '/assets/langauges',
  * ];
  *
  * return [
- *     TextDomain::class => $d2_textdomain,
+ *     TextDomain::class => $core_textdomain,
  * ];
  * ```
  *

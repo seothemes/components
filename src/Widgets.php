@@ -18,14 +18,14 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\Widgets;
  *
- * $d2_widgets = [
+ * $core_widgets = [
  *     Widgets::UNREGISTER => [
  *         \WP_Widget_Search::class,
  *     ],
  * ];
  *
  * return [
- *     Widgets::class => $d2_widgets,
+ *     Widgets::class => $core_widgets,
  * ];
  * ```
  *

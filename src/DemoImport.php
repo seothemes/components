@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\DemoImport;
  *
- * $d2_demo_import = [
+ * $core_demo_import = [
  *     DemoImport::IMPORT_SETTINGS      => [
  *         DemoImport::LOCAL_IMPORT_FILE            => get_stylesheet_directory() . '/resources/demo/sample.xml',
  *         DemoImport::LOCAL_IMPORT_WIDGET_FILE     => get_stylesheet_directory() . '/resources/demo/widgets.wie',
@@ -44,7 +44,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     DemoImport::class => $d2_demo_import,
+ *     DemoImport::class => $core_demo_import,
  * ];
  * ```
  *

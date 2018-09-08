@@ -17,7 +17,7 @@ namespace SeoThemes\Core;
  * Example config (usually located at config/defaults.php):
  *
  * ```
- * $d2_hooks = [
+ * $core_hooks = [
  *     Hooks::ADD => [
  *         [
  *             Hooks::TAG         => 'genesis_site_title',

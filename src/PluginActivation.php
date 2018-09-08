@@ -19,7 +19,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\PluginActivation;
  *
- * $d2_plugins = [
+ * $core_plugins = [
  *     PluginActivation::REGISTER => [
  *         [
  *             PluginActivation::NAME     => 'Genesis Widget Column Classes',
@@ -39,7 +39,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     PluginActivation::class => $d2_plugins,
+ *     PluginActivation::class => $core_plugins,
  * ];
  * ```
  */

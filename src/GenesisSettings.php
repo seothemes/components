@@ -27,7 +27,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\GenesisSettings;
  *
- * $d2_genesis_settings = [
+ * $core_genesis_settings = [
  *     GenesisSettings::FORCE   => [
  *         GenesisSettings::POSTS_NAV         => 'numeric',
  *         GenesisSettings::SEMANTIC_HEADINGS => 0,
@@ -38,7 +38,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     GenesisSettings => $d2_genesis_settings,
+ *     GenesisSettings => $core_genesis_settings,
  * ];
  * ```
  *

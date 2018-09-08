@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\AssetLoader;
  *
- * $d2_assets = [
+ * $core_assets = [
  *      AssetLoader::SCRIPTS => [
  *         [
  *            AssetLoader::HANDLE   => 'text-domain',
@@ -52,7 +52,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     AssetLoader::class => $d2_assets,
+ *     AssetLoader::class => $core_assets,
  * ];
  * ```
  *

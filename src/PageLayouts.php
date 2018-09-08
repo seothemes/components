@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\GenesisLayout;
  *
- * $d2_layouts = [
+ * $core_layouts = [
  *     GenesisLayout::REGISTER   => [
  *         'custom-layout', [
  *             'label' => 'Custom Layout',
@@ -34,7 +34,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     GenesisLayout::class => $d2_layouts,
+ *     GenesisLayout::class => $core_layouts,
  * ];
  * ```
  *

@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\PageTemplate;
  *
- * $d2_page_templates = [
+ * $core_page_templates = [
  *     PageTemplate::REGISTER   => [
  *         '/resources/views/example.php' => 'Example Template',
  *     ],
@@ -29,7 +29,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     PageTemplate::class => $d2_page_templates,
+ *     PageTemplate::class => $core_page_templates,
  * ];
  * ```
  *

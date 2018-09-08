@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\WidgetArea;
  *
- * $d2_widget_areas = [
+ * $core_widget_areas = [
  *     WidgetArea::REGISTER   => [
  *         [
  *             WidgetArea::ID          => 'utility-bar',
@@ -40,7 +40,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     WidgetArea::class => $d2_widget_areas,
+ *     WidgetArea::class => $core_widget_areas,
  * ];
  * ```
  *

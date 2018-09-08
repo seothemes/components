@@ -19,7 +19,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\ImageSizes;
  *
- * $d2_image_sizes = [
+ * $core_image_sizes = [
  *     ImageSizes::REMOVE => [
  *         'example_image_size',
  *     ],
@@ -38,7 +38,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     ImageSizes::class => $d2_image_sizes,
+ *     ImageSizes::class => $core_image_sizes,
  * ];
  * ```
  *

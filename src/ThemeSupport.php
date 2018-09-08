@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\ThemeSupport;
  *
- * $d2_theme_support = [
+ * $core_theme_support = [
  *     ThemeSupport::ADD => [
  *         'html5', [
  *             'comment-form',
@@ -30,7 +30,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     ThemeSupport::class => $d2_theme_support,
+ *     ThemeSupport::class => $core_theme_support,
  * ];
  * ```
  *

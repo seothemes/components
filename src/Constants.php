@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\Constants;
  *
- * $d2_constants = [
+ * $core_constants = [
  *     Constants::DEFINE => [
  *         'CHILD_THEME_NAME'    => wp_get_theme()->get( 'Name' ),
  *         'CHILD_THEME_URL'     => wp_get_theme()->get( 'ThemeURI' ),
@@ -27,7 +27,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     Constants::class => $d2_constants,
+ *     Constants::class => $core_constants,
  * ];
  * ```
  *

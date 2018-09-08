@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\GoogleFonts;
  *
- * $d2_google_fonts = [
+ * $core_google_fonts = [
  *     GoogleFonts::ENQUEUE => [
  *         'Source+Sans+Pro:400,600,700',
  *         'Montserrat:400,600',
@@ -26,7 +26,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     GoogleFonts::class => $d2_google_fonts,
+ *     GoogleFonts::class => $core_google_fonts,
  * ];
  * ```
  *

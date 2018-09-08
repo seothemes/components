@@ -18,7 +18,7 @@ namespace SeoThemes\Core;
  * ```
  * use SeoThemes\Core\SimpleSocialIcons;
  *
- * $d2_simple_social_icons = [
+ * $core_simple_social_icons = [
  *     SimpleSocialIcons::DEFAULTS => [
  *         SimpleSocialIcons::NEW_WINDOW => 1,
  *         SimpleSocialIcons::SIZE       => 40,
@@ -26,7 +26,7 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     SimpleSocialIcons::class => $d2_simple_social_icons,
+ *     SimpleSocialIcons::class => $core_simple_social_icons,
  * ];
  * ```
  *
