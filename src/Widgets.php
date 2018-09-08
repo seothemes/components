@@ -4,7 +4,7 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, D2 Themes
+ * @copyright 2018, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
