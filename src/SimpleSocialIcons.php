@@ -4,7 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, D2Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 
@@ -80,7 +81,10 @@ class SimpleSocialIcons extends Component {
 	 */
 	public function init() {
 		if ( array_key_exists( self::DEFAULTS, $this->config ) ) {
-			add_filter( 'simple_social_default_styles', [ $this, 'simple_social_defaults' ] );
+			add_filter( 'simple_social_default_styles', [
+				$this,
+				'simple_social_defaults'
+			] );
 		}
 	}
 

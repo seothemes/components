@@ -4,7 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, SEO Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 
@@ -115,7 +116,7 @@ class CustomColors extends Component {
 
 					foreach ( $rule['elements'] as $element ) {
 						$comma = ( 0 === $counter ++ ? '' : ',' );
-						$css  .= $comma . $element;
+						$css   .= $comma . $element;
 					}
 
 					$css .= '{';
@@ -141,7 +142,7 @@ class CustomColors extends Component {
 	/**
 	 * Quick and dirty way to mostly minify CSS.
 	 *
-	 * @since 0.1.0
+	 * @since  0.1.0
 	 *
 	 * @author Gary Jones
 	 *

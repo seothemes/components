@@ -4,7 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, D2Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 
@@ -46,48 +47,48 @@ namespace SeoThemes\Core;
  */
 class GenesisSettings extends Component {
 
-	const DEFAULTS                  = 'defaults';
-	const FORCE                     = 'force';
-	const UPDATE                    = 'update';
-	const UPDATE_EMAIL              = 'update_email';
-	const UPDATE_EMAIL_ADDRESS      = 'update_email_address';
-	const BLOG_TITLE                = 'blog_title';
-	const STYLE_SELECTION           = 'style_selection';
-	const SITE_LAYOUT               = 'site_layout';
-	const SUPERFISH                 = 'superfish';
-	const NAV_EXTRAS                = 'nav_extras';
-	const NAV_EXTRAS_TWITTER_ID     = 'nav_extras_twitter_id';
-	const NAV_EXTRAS_TWITTER_TEXT   = 'nav_extras_twitter_text';
-	const FEED_URI                  = 'feed_uri';
-	const REDIRECT_FEED             = 'redirect_feed';
-	const COMMENTS_FEED_URI         = 'comments_feed_uri';
-	const REDIRECT_COMMENTS_FEED    = 'redirect_comments_feed';
-	const COMMENTS_PAGES            = 'comments_pages';
-	const COMMENTS_POSTS            = 'comments_posts';
-	const TRACKBACKS_PAGES          = 'trackbacks_pages';
-	const TRACKBACKS_POSTS          = 'trackbacks_posts';
-	const BREADCRUMB_HOME           = 'breadcrumb_home';
-	const BREADCRUMB_FRONT_PAGE     = 'breadcrumb_front_page';
-	const BREADCRUMB_POSTS_PAGE     = 'breadcrumb_posts_page';
-	const BREADCRUMB_SINGLE         = 'breadcrumb_single';
-	const BREADCRUMB_PAGE           = 'breadcrumb_page';
-	const BREADCRUMB_ARCHIVE        = 'breadcrumb_archive';
-	const BREADCRUMB_404            = 'breadcrumb_404';
-	const BREADCRUMB_ATTACHMENT     = 'breadcrumb_attachment';
-	const CONTENT_ARCHIVE           = 'content_archive';
+	const DEFAULTS = 'defaults';
+	const FORCE = 'force';
+	const UPDATE = 'update';
+	const UPDATE_EMAIL = 'update_email';
+	const UPDATE_EMAIL_ADDRESS = 'update_email_address';
+	const BLOG_TITLE = 'blog_title';
+	const STYLE_SELECTION = 'style_selection';
+	const SITE_LAYOUT = 'site_layout';
+	const SUPERFISH = 'superfish';
+	const NAV_EXTRAS = 'nav_extras';
+	const NAV_EXTRAS_TWITTER_ID = 'nav_extras_twitter_id';
+	const NAV_EXTRAS_TWITTER_TEXT = 'nav_extras_twitter_text';
+	const FEED_URI = 'feed_uri';
+	const REDIRECT_FEED = 'redirect_feed';
+	const COMMENTS_FEED_URI = 'comments_feed_uri';
+	const REDIRECT_COMMENTS_FEED = 'redirect_comments_feed';
+	const COMMENTS_PAGES = 'comments_pages';
+	const COMMENTS_POSTS = 'comments_posts';
+	const TRACKBACKS_PAGES = 'trackbacks_pages';
+	const TRACKBACKS_POSTS = 'trackbacks_posts';
+	const BREADCRUMB_HOME = 'breadcrumb_home';
+	const BREADCRUMB_FRONT_PAGE = 'breadcrumb_front_page';
+	const BREADCRUMB_POSTS_PAGE = 'breadcrumb_posts_page';
+	const BREADCRUMB_SINGLE = 'breadcrumb_single';
+	const BREADCRUMB_PAGE = 'breadcrumb_page';
+	const BREADCRUMB_ARCHIVE = 'breadcrumb_archive';
+	const BREADCRUMB_404 = 'breadcrumb_404';
+	const BREADCRUMB_ATTACHMENT = 'breadcrumb_attachment';
+	const CONTENT_ARCHIVE = 'content_archive';
 	const CONTENT_ARCHIVE_THUMBNAIL = 'content_archive_thumbnail';
-	const IMAGE_SIZE                = 'image_size';
-	const IMAGE_ALIGNMENT           = 'image_alignment';
-	const POSTS_NAV                 = 'posts_nav';
-	const BLOG_CAT                  = 'blog_cat';
-	const BLOG_CAT_EXCLUDE          = 'blog_cat_exclude';
-	const BLOG_CAT_NUM              = 'blog_cat_num';
-	const HEADER_SCRIPTS            = 'header_scripts';
-	const FOOTER_SCRIPTS            = 'footer_scripts';
-	const THEME_VERSION             = 'theme_version';
-	const DB_VERSION                = 'db_version';
-	const FIRST_VERSION             = 'first_version';
-	const SEMANTIC_HEADINGS         = 'semantic_headings';
+	const IMAGE_SIZE = 'image_size';
+	const IMAGE_ALIGNMENT = 'image_alignment';
+	const POSTS_NAV = 'posts_nav';
+	const BLOG_CAT = 'blog_cat';
+	const BLOG_CAT_EXCLUDE = 'blog_cat_exclude';
+	const BLOG_CAT_NUM = 'blog_cat_num';
+	const HEADER_SCRIPTS = 'header_scripts';
+	const FOOTER_SCRIPTS = 'footer_scripts';
+	const THEME_VERSION = 'theme_version';
+	const DB_VERSION = 'db_version';
+	const FIRST_VERSION = 'first_version';
+	const SEMANTIC_HEADINGS = 'semantic_headings';
 
 	/**
 	 * Apply settings filter if this component is in use, or force settings.

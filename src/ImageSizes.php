@@ -4,8 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, D2Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 

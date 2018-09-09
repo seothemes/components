@@ -4,7 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    SEO Themes <seothemeswp@gmail.com>
- * @copyright 2018, SEO Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 
@@ -35,8 +36,8 @@ namespace SeoThemes\Core;
 class GoogleFonts extends Component {
 
 	const ENQUEUE = 'enqueue';
-	const HANDLE  = 'google-fonts';
-	const URL     = '//fonts.googleapis.com/css?family=';
+	const HANDLE = 'google-fonts';
+	const URL = '//fonts.googleapis.com/css?family=';
 
 	/**
 	 * Add action to enqueue Google Fonts when this component is in use.
@@ -73,6 +74,7 @@ class GoogleFonts extends Component {
 		foreach ( $this->config[ self::ENQUEUE ] as $google_font ) {
 			$google_fonts[] = $google_font;
 		}
+
 		return self::URL . implode( '|', $google_fonts );
 	}
 

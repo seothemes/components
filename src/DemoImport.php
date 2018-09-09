@@ -4,7 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @copyright 2018, SEO Themes
+ * @author    Craig Simpson <craig@craigsimpson.scot>
+ * @copyright 2018, D2 Themes
  * @license   GPL-3.0-or-later
  */
 
@@ -20,14 +21,15 @@ namespace SeoThemes\Core;
  *
  * $core_demo_import = [
  *     DemoImport::IMPORT_SETTINGS      => [
- *         DemoImport::LOCAL_IMPORT_FILE            => get_stylesheet_directory() . '/resources/demo/sample.xml',
- *         DemoImport::LOCAL_IMPORT_WIDGET_FILE     => get_stylesheet_directory() . '/resources/demo/widgets.wie',
- *         DemoImport::LOCAL_IMPORT_CUSTOMIZER_FILE => get_stylesheet_directory() . '/resources/demo/customizer.dat',
- *         DemoImport::IMPORT_FILE_NAME             => 'Demo Import',
- *         DemoImport::CATEGORIES                   => false,
+ *         DemoImport::LOCAL_IMPORT_FILE            => get_stylesheet_directory() .
+ *         '/resources/demo/sample.xml', DemoImport::LOCAL_IMPORT_WIDGET_FILE     =>
+ *         get_stylesheet_directory() . '/resources/demo/widgets.wie',
+ *         DemoImport::LOCAL_IMPORT_CUSTOMIZER_FILE => get_stylesheet_directory() .
+ *         '/resources/demo/customizer.dat', DemoImport::IMPORT_FILE_NAME             =>
+ *         'Demo Import', DemoImport::CATEGORIES                   => false,
  *         DemoImport::LOCAL_IMPORT_REDUX           => false,
- *         DemoImport::IMPORT_PREVIEW_IMAGE_URL     => false,
- *         DemoImport::IMPORT_NOTICE                => false,
+ *         DemoImport::IMPORT_PREVIEW_IMAGE_URL     => false, DemoImport::IMPORT_NOTICE
+ *                      => false,
  *     ],
  *     DemoImport::PAGE_SETTINGS => [
  *         DemoImport::SHOW_ON_FRONT            => 'page',
@@ -52,23 +54,23 @@ namespace SeoThemes\Core;
  */
 class DemoImport extends Component {
 
-	const IMPORT_SETTINGS              = 'import_settings';
-	const PAGE_SETTINGS                = 'page_settings';
-	const MENU_SETTINGS                = 'menu_settings';
-	const SHOW_ON_FRONT                = 'show_on_front';
-	const PAGE_ON_FRONT                = 'page_on_front';
-	const PAGE_FOR_POSTS               = 'page_for_posts';
-	const WOOCOMMERCE_SHOP_PAGE_ID     = 'woocommerce_shop_page_id';
-	const MENU_NAME                    = 'menu_name';
-	const MENU_LOCATION                = 'menu_location';
-	const LOCAL_IMPORT_FILE            = 'local_import_file';
-	const LOCAL_IMPORT_WIDGET_FILE     = 'local_import_widget_file';
+	const IMPORT_SETTINGS = 'import_settings';
+	const PAGE_SETTINGS = 'page_settings';
+	const MENU_SETTINGS = 'menu_settings';
+	const SHOW_ON_FRONT = 'show_on_front';
+	const PAGE_ON_FRONT = 'page_on_front';
+	const PAGE_FOR_POSTS = 'page_for_posts';
+	const WOOCOMMERCE_SHOP_PAGE_ID = 'woocommerce_shop_page_id';
+	const MENU_NAME = 'menu_name';
+	const MENU_LOCATION = 'menu_location';
+	const LOCAL_IMPORT_FILE = 'local_import_file';
+	const LOCAL_IMPORT_WIDGET_FILE = 'local_import_widget_file';
 	const LOCAL_IMPORT_CUSTOMIZER_FILE = 'local_import_customizer_file';
-	const IMPORT_FILE_NAME             = 'import_file_name';
-	const CATEGORIES                   = 'categories';
-	const LOCAL_IMPORT_REDUX           = 'local_import_redux';
-	const IMPORT_PREVIEW_IMAGE_URL     = 'import_preview_image_url';
-	const IMPORT_NOTICE                = 'import_notice';
+	const IMPORT_FILE_NAME = 'import_file_name';
+	const CATEGORIES = 'categories';
+	const LOCAL_IMPORT_REDUX = 'local_import_redux';
+	const IMPORT_PREVIEW_IMAGE_URL = 'import_preview_image_url';
+	const IMPORT_NOTICE = 'import_notice';
 
 	/**
 	 * Initialize class.
