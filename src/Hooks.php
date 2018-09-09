@@ -4,9 +4,8 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Lee Anthony <seothemeswp@gmail.com>
  * @copyright 2018, SEO Themes
- * @license   GPL-3.0-or-later
+ * @license   MIT
  */
 
 namespace SeoThemes\Core;
@@ -62,7 +61,7 @@ class Hooks extends Component {
 	/**
 	 * Apply hooks if config is found.
 	 *
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 *
 	 * @return void
 	 */
@@ -78,25 +77,14 @@ class Hooks extends Component {
 				},
 			];
 
-			/**
-			 * Attach everything to a later hook.
-			 *
-			 * Running all of the code inside `genesis_setup` means that some conditionals
-			 * can't be parsed, because it's too early in the load order. The `wp` hook
-			 * is used here instead, which allows us to attach things to later hooks.
-			 *
-			 * @since 0.1.0
-			 *
-			 * @return void
-			 */
-			add_action( 'wp', [ $this, 'apply_hooks' ] );
+			$this->apply_hooks();
 		}
 	}
 
 	/**
 	 * Adds or removes action and filter hooks.
 	 *
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 *
 	 * @return void
 	 */
@@ -110,7 +98,24 @@ class Hooks extends Component {
 				$args        = $this->get_value( self::ARGS, $hook );
 				$conditional = $this->get_value( self::CONDITIONAL, $hook );
 
-				if ( is_callable( $conditional ) && $conditional() ) {
+				/**
+				 * Attach to a later hook if using conditional.
+				 *
+				 * Running all of the code inside `genesis_setup` means that some conditionals
+				 * can't be parsed, because it's too early in the load order. The `wp` hook
+				 * is used here instead, which allows us to attach things to later hooks.
+				 *
+				 * @since 0.3.0
+				 *
+				 * @return void
+				 */
+				if ( array_key_exists( self::CONDITIONAL, $hook ) ) {
+					add_action( 'wp', function () use ( $conditional, $function, $tag, $callback, $priority, $args ) {
+						if ( is_callable( $conditional ) && $conditional() ) {
+							$function( $tag, $callback, $priority, $args );
+						}
+					} );
+				} else {
 					$function( $tag, $callback, $priority, $args );
 				}
 			}
@@ -121,7 +126,7 @@ class Hooks extends Component {
 	/**
 	 * Returns the default value for an array key.
 	 *
-	 * @since 0.1.0
+	 * @since 0.2.0
 	 *
 	 * @param string $key   Key to check.
 	 * @param array  $array Array to search.
