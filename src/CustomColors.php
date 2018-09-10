@@ -133,7 +133,9 @@ class CustomColors extends Component {
 
 		if ( ! empty( $css ) ) {
 
-			wp_add_inline_style( wp_get_theme()->get( 'TextDomain' ), $this->minify_css( $css ) );
+			$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
+
+			wp_add_inline_style( $handle, $this->minify_css( $css ) );
 
 		}
 
