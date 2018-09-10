@@ -111,7 +111,7 @@ This project is licensed under the GNU General Public License - see the LICENSE.
 
 ## Authors
 
-- **Lee Anthony** - [SEO Themes](https://seothemes.com/)
+<a href="https://seothemes.com" target="_blank"><img src="https://seothemes.com/wp-content/uploads/2018/07/seothemes-genesis-starter-theme.png" alt="SEO Themes logo" width="150"></a> &nbsp; <a href="https://github.com/d2themes" target="_blank"><img src="https://seothemes.com/wp-content/uploads/2018/08/d2themes.png" alt="D2 Themes logo" width="150"></a>
 
 See also the list of [contributors](https://github.com/seothemes/core/graphs/contributors) who participated in this project.
 
