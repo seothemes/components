@@ -93,9 +93,9 @@ class Customizer extends Component {
 	protected $properties;
 
 	/**
-	 * Description of expected behavior.
+	 * Initialize component.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.2
 	 *
 	 * @return void
 	 */
@@ -140,7 +140,7 @@ class Customizer extends Component {
 	/**
 	 * Adds fields (settings & controls).
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.2
 	 *
 	 * @param array $config
 	 *
@@ -160,7 +160,7 @@ class Customizer extends Component {
 	/**
 	 * Adds sections.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.2
 	 *
 	 * @param $config
 	 *
@@ -179,7 +179,7 @@ class Customizer extends Component {
 	/**
 	 * Adds panels.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.2
 	 *
 	 * @param $config
 	 *
