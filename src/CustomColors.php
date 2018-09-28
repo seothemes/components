@@ -1,6 +1,6 @@
 <?php
 /**
- * Add Customizer color settings through configuration.
+ * Add Customizer color settings and CSS output through configuration.
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
@@ -12,23 +12,24 @@
 namespace SeoThemes\Core;
 
 /**
- * Add Customizer color settings through configuration.
+ * Add Customizer color settings and CSS output through configuration.
  *
  * Example config (usually located at config/defaults.php):
  *
  * ```
  * use SeoThemes\Core\CustomColors;
  *
- * $custom_colors = [
- *     'background' => [
- *         'default' => '#ffffff',
- *         'output'  => [
+ * $core_custom_colors = [
+ *     [
+ *         CustomColors::ID            => 'background',
+ *         CustomColors::DEFAULT_COLOR => '#ffffff',
+ *         CustomColors::OUTPUT        => [
  *             [
- *                 'elements'   => [
+ *                 CustomColors::ELEMENTS   => [
  *                     'body',
  *                     '.site-container',
  *                 ],
- *                 'properties' => [
+ *                 CustomColors::PROPERTIES => [
  *                     'background-color' => '%s',
  *                 ],
  *             ],
@@ -37,11 +38,17 @@ namespace SeoThemes\Core;
  * ];
  *
  * return [
- *     CustomColors::class => $custom_colors,
+ *     CustomColors::class => $core_custom_colors,
  * ];
  * ```
  */
 class CustomColors extends Component {
+
+	const ID            = 'id';
+	const DEFAULT_COLOR = 'default';
+	const OUTPUT        = 'output';
+	const ELEMENTS      = 'elements';
+	const PROPERTIES    = 'properties';
 
 	/**
 	 * Attach hooks to add Customizer color settings.
@@ -65,29 +72,28 @@ class CustomColors extends Component {
 	 * @return void
 	 */
 	public function add_settings( $wp_customize ) {
-
 		foreach ( $this->config as $color => $settings ) {
-
-			$setting = "child_theme_{$color}_color";
-			$label   = ucwords( str_replace( '_', ' ', $color ) ) . ' Color';
+			$id      = $settings[ self::ID ];
+			$setting = "child_theme_{$id}_color";
+			$label   = ucwords( str_replace( '_', ' ', $id ) ) . ' Color';
 
 			$wp_customize->add_setting(
 				$setting,
-				array(
-					'default'           => $settings['default'],
+				[
+					'default'           => $settings[ self::DEFAULT_COLOR ],
 					'sanitize_callback' => 'sanitize_hex_color',
-				)
+				]
 			);
 
 			$wp_customize->add_control(
 				new \WP_Customize_Color_Control(
 					$wp_customize,
 					$setting,
-					array(
+					[
 						'section'  => 'colors',
 						'label'    => $label,
 						'settings' => $setting,
-					)
+					]
 				)
 			);
 		}
@@ -101,44 +107,37 @@ class CustomColors extends Component {
 	 * @return void
 	 */
 	public function output_css() {
-
 		$css = '';
 
 		foreach ( $this->config as $color => $settings ) {
+			$id           = $settings[ self::ID ];
+			$custom_color = get_theme_mod( "child_theme_{$id}_color", $settings[ self::DEFAULT_COLOR ] );
 
-			$custom_color = get_theme_mod( "child_theme_{$color}_color", $settings['default'] );
-
-			if ( $settings['default'] !== $custom_color ) {
-
-				foreach ( $settings['output'] as $rule ) {
-
+			if ( $settings[ self::DEFAULT_COLOR ] !== $custom_color ) {
+				foreach ( $settings[ self::OUTPUT ] as $rule ) {
 					$counter = 0;
 
-					foreach ( $rule['elements'] as $element ) {
+					foreach ( $rule[ self::ELEMENTS ] as $element ) {
 						$comma = ( 0 === $counter ++ ? '' : ',' );
 						$css   .= $comma . $element;
 					}
 
 					$css .= '{';
 
-					foreach ( $rule['properties'] as $property => $pattern ) {
+					foreach ( $rule[ self::PROPERTIES ] as $property => $pattern ) {
 						$css .= $property . ':' . sprintf( $pattern, $custom_color ) . ';';
 					}
 
 					$css .= '}';
-
 				}
 			}
 		}
 
 		if ( ! empty( $css ) ) {
-
-			$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
+			$handle = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
 			wp_add_inline_style( $handle, $this->minify_css( $css ) );
-
 		}
-
 	}
 
 	/**
@@ -185,6 +184,5 @@ class CustomColors extends Component {
 		$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
 
 		return trim( $css );
-
 	}
 }
