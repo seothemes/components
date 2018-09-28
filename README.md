@@ -78,6 +78,7 @@ Core follows the [PHP Package Development Standard](https://github.com/php-pds/s
 │   ├── Breadcrumbs.php
 │   ├── Component.php
 │   ├── Constants.php
+│   ├── Customizer.php
 │   ├── CustomColors.php
 │   ├── DemoImport.php
 │   ├── GenesisSettings.php
