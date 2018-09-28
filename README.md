@@ -86,6 +86,7 @@ Core follows the [PHP Package Development Standard](https://github.com/php-pds/s
 │   ├── ImageSizes.php
 │   ├── PageLayouts.php
 │   ├── PageTemplate.php
+│   ├── PostTypeSupport.php
 │   ├── PluginActivation.php
 │   ├── SimpleSocialIcons.php
 │   ├── TextDomain.php
