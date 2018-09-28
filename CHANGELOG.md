@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 0.1.2
 
 * Add Customizer component.
+* Add support for RGBA patterns in CustomColors.
 * Refactor CustomColors component.
 
 ## 0.1.1

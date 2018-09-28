@@ -49,11 +49,12 @@ class CustomColors extends Component {
 	const OUTPUT        = 'output';
 	const ELEMENTS      = 'elements';
 	const PROPERTIES    = 'properties';
+	const FORMAT        = 'format';
 
 	/**
 	 * Attach hooks to add Customizer color settings.
 	 *
-	 * @since 0.1.0
+	 * @since 0.1.2
 	 *
 	 * @return void
 	 */
@@ -125,7 +126,8 @@ class CustomColors extends Component {
 					$css .= '{';
 
 					foreach ( $rule[ self::PROPERTIES ] as $property => $pattern ) {
-						$css .= $property . ':' . sprintf( $pattern, $custom_color ) . ';';
+						$format = strpos( $pattern, 'rgba' ) ? $this->hex_to_rgb( $custom_color ) : $custom_color;
+						$css    .= $property . ':' . sprintf( $pattern, $format ) . ';';
 					}
 
 					$css .= '}';
@@ -138,6 +140,29 @@ class CustomColors extends Component {
 
 			wp_add_inline_style( $handle, $this->minify_css( $css ) );
 		}
+	}
+
+	/**
+	 * Converts hex to rgb.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param $color
+	 *
+	 * @return string
+	 */
+	protected function hex_to_rgb( $color ) {
+		list( $r, $g, $b ) = [
+			$color[1] . $color[2],
+			$color[3] . $color[4],
+			$color[5] . $color[6],
+		];
+
+		$r = hexdec( $r );
+		$g = hexdec( $g );
+		$b = hexdec( $b );
+
+		return implode( ',', [ $r, $g, $b ] );
 	}
 
 	/**
