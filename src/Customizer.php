@@ -95,7 +95,7 @@ class Customizer extends Component {
 	/**
 	 * Initialize component.
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @return void
 	 */
@@ -140,7 +140,7 @@ class Customizer extends Component {
 	/**
 	 * Adds fields (settings & controls).
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @param array $config
 	 *
@@ -160,7 +160,7 @@ class Customizer extends Component {
 	/**
 	 * Adds sections.
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @param $config
 	 *
@@ -179,7 +179,7 @@ class Customizer extends Component {
 	/**
 	 * Adds panels.
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @param $config
 	 *
@@ -198,7 +198,7 @@ class Customizer extends Component {
 	/**
 	 * Separates unwanted array keys from configs.
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @param $args
 	 * @param $type

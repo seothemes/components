@@ -54,7 +54,7 @@ class CustomColors extends Component {
 	/**
 	 * Attach hooks to add Customizer color settings.
 	 *
-	 * @since 0.1.2
+	 * @since 0.1.0
 	 *
 	 * @return void
 	 */
@@ -66,7 +66,7 @@ class CustomColors extends Component {
 	/**
 	 * Sets up the theme customizer sections, controls, and settings.
 	 *
-	 * @since 0.1.2
+	 * @since 0.2.0
 	 *
 	 * @param object $wp_customize Global customizer object.
 	 *
@@ -103,7 +103,7 @@ class CustomColors extends Component {
 	/**
 	 * Logic to output customizer styles.
 	 *
-	 * @since  0.1.2
+	 * @since  0.2.0
 	 *
 	 * @return void
 	 */
@@ -168,7 +168,7 @@ class CustomColors extends Component {
 	/**
 	 * Quick and dirty way to mostly minify CSS.
 	 *
-	 * @since  0.1.2
+	 * @since  0.2.0
 	 *
 	 * @author Gary Jones
 	 *

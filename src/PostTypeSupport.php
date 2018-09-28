@@ -45,7 +45,7 @@ class PostTypeSupport extends Component {
 	/**
 	 * Initialize component.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.0
 	 *
 	 * @return void
 	 */
@@ -61,7 +61,7 @@ class PostTypeSupport extends Component {
 	/**
 	 * Add post type support.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.0
 	 *
 	 * @param array $config Features to enable.
 	 *
@@ -76,7 +76,7 @@ class PostTypeSupport extends Component {
 	/**
 	 * Remove post type support.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.0
 	 *
 	 * @param array $config Features to remove.
 	 *
