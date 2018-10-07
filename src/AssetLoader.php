@@ -46,7 +46,8 @@ namespace SeoThemes\Core;
  *      AssetLoader::STYLES => [
  *         [
  *            AssetLoader::HANDLE   => 'fontawesome',
- *            AssetLoader::URL      => 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+ *            AssetLoader::URL      =>
+ *            'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
  *            AssetLoader::VERSION  => '4.7.0',
  *       ],
  *    ],
@@ -61,18 +62,19 @@ namespace SeoThemes\Core;
  */
 class AssetLoader extends Component {
 
-	const SCRIPTS = 'scripts';
-	const STYLES = 'styles';
-	const HANDLE = 'handle';
-	const URL = 'src';
-	const DEPS = 'deps';
-	const VERSION = 'version';
-	CONST FOOTER = 'footer';
-	CONST MEDIA = 'media';
-	CONST ENQUEUE = 'enqueue';
-	CONST LOCALIZE = 'localize';
-	CONST LOCALIZEVAR = 'l10var';
-	CONST LOCALIZEDATA = 'l10ndata';
+	const CONDITIONAL  = 'conditional';
+	const DEPS         = 'deps';
+	const ENQUEUE      = 'enqueue';
+	const FOOTER       = 'footer';
+	const HANDLE       = 'handle';
+	const LOCALIZE     = 'localize';
+	const LOCALIZEDATA = 'l10ndata';
+	const LOCALIZEVAR  = 'l10var';
+	const MEDIA        = 'media';
+	const SCRIPTS      = 'scripts';
+	const STYLES       = 'styles';
+	const URL          = 'src';
+	const VERSION      = 'version';
 
 	public function init() {
 		if ( array_key_exists( self::SCRIPTS, $this->config ) ) {
@@ -91,18 +93,21 @@ class AssetLoader extends Component {
 	 */
 	public function process_scripts() {
 		foreach ( $this->config[ self::SCRIPTS ] as $asset ) {
-			$deps     = $this->get_deps( $asset );
-			$version  = $this->get_version( $asset );
-			$footer   = $this->get_footer( $asset );
-			$function = true === $asset[ self::ENQUEUE ] ? 'wp_enqueue_script' : 'wp_register_script';
+			$deps        = $this->get_deps( $asset );
+			$version     = $this->get_version( $asset );
+			$footer      = $this->get_footer( $asset );
+			$conditional = array_key_exists( self::CONDITIONAL, $asset ) ? $asset[ self::CONDITIONAL ] : '__return_true';
+			$function    = true === $asset[ self::ENQUEUE ] ? 'wp_enqueue_script' : 'wp_register_script';
 
 			// Either enqueue or register the script.
-			$function( $asset[ self::HANDLE ], $asset[ self::URL ], $deps, $version, $footer );
+			if ( is_callable( $conditional ) && $conditional() ) {
+				$function( $asset[ self::HANDLE ], $asset[ self::URL ], $deps, $version, $footer );
 
-			if ( array_key_exists( self::LOCALIZE, $asset ) ) {
-				$name = $asset[ self::LOCALIZE ][ self::LOCALIZEVAR ];
-				$data = $asset[ self::LOCALIZE ][ self::LOCALIZEDATA ];
-				wp_localize_script( $asset[ self::HANDLE ], $name, $data );
+				if ( array_key_exists( self::LOCALIZE, $asset ) ) {
+					$name = $asset[ self::LOCALIZE ][ self::LOCALIZEVAR ];
+					$data = $asset[ self::LOCALIZE ][ self::LOCALIZEDATA ];
+					wp_localize_script( $asset[ self::HANDLE ], $name, $data );
+				}
 			}
 		}
 	}
@@ -114,13 +119,16 @@ class AssetLoader extends Component {
 	 */
 	public function process_styles() {
 		foreach ( $this->config[ self::STYLES ] as $asset ) {
-			$deps     = $this->get_deps( $asset );
-			$version  = $this->get_version( $asset );
-			$media    = $this->get_media( $asset );
-			$function = true === $asset[ self::ENQUEUE ] ? 'wp_enqueue_style' : 'wp_register_style';
+			$deps        = $this->get_deps( $asset );
+			$version     = $this->get_version( $asset );
+			$media       = $this->get_media( $asset );
+			$conditional = array_key_exists( self::CONDITIONAL, $asset ) ? $asset[ self::CONDITIONAL ] : '__return_true';
+			$function    = true === $asset[ self::ENQUEUE ] ? 'wp_enqueue_style' : 'wp_register_style';
 
 			// Either enqueue or register the stylesheet.
-			$function( $asset[ self::HANDLE ], $asset[ self::URL ], $deps, $version, $media );
+			if ( is_callable( $conditional ) && $conditional() ) {
+				$function( $asset[ self::HANDLE ], $asset[ self::URL ], $deps, $version, $media );
+			}
 		}
 	}
 
