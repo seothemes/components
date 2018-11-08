@@ -83,8 +83,10 @@ Core follows the [PHP Package Development Standard](https://github.com/php-pds/s
 │   ├── DemoImport.php
 │   ├── GenesisSettings.php
 │   ├── GoogleFonts.php
+│   ├── HeroSection.php
 │   ├── Hooks.php
 │   ├── ImageSizes.php
+│   ├── Kirki.php
 │   ├── PageLayouts.php
 │   ├── PageTemplate.php
 │   ├── PostTypeSupport.php
