@@ -78,16 +78,41 @@ class Kirki extends Component {
 	 * @return void
 	 */
 	public function init() {
-		add_filter( 'kirki/dynamic_css/method', [ $this, 'write_to_file' ] );
-		add_filter( 'kirki_config', [ $this, 'remove_loader' ] );
-		add_action( 'after_setup_theme', [ $this, 'add_config' ] );
-		add_action( 'customize_register', [ $this, 'remove_defaults' ], 99 );
-		add_action( 'customize_controls_print_styles', [ $this, 'styles' ], 99 );
-		add_action( 'customize_controls_print_scripts', [ $this, 'scripts' ], 999 );
+		if ( array_key_exists( self::METHOD, $this->config ) ) {
+			add_filter( 'kirki/dynamic_css/method', [ $this, 'write_to_file' ] );
+		}
 
-		$this->add_panels( $this->config[ self::PANELS ] );
-		$this->add_sections( $this->config[ self::SECTIONS ] );
-		$this->add_fields( $this->config[ self::FIELDS ] );
+		if ( array_key_exists( self::LOADER, $this->config ) ) {
+			add_filter( 'kirki_config', [ $this, 'remove_loader' ] );
+		}
+
+		if ( array_key_exists( self::CONFIG, $this->config ) ) {
+			add_action( 'after_setup_theme', [ $this, 'add_config' ] );
+		}
+
+		if ( array_key_exists( self::REMOVE, $this->config ) ) {
+			add_action( 'customize_register', [ $this, 'remove_defaults' ], 99 );
+		}
+
+		if ( array_key_exists( self::STYLES, $this->config ) ) {
+			add_action( 'customize_controls_print_styles', [ $this, 'styles' ], 99 );
+		}
+
+		if ( array_key_exists( self::SCRIPTS, $this->config ) ) {
+			add_action( 'customize_controls_print_scripts', [ $this, 'scripts' ], 999 );
+		}
+
+		if ( array_key_exists( self::PANELS, $this->config ) ) {
+			$this->add_panels( $this->config[ self::PANELS ] );
+		}
+
+		if ( array_key_exists( self::SECTIONS, $this->config ) ) {
+			$this->add_sections( $this->config[ self::SECTIONS ] );
+		}
+
+		if ( array_key_exists( self::FIELDS, $this->config ) ) {
+			$this->add_fields( $this->config[ self::FIELDS ] );
+		}
 	}
 
 	/**
