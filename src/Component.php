@@ -30,7 +30,7 @@ abstract class Component {
 	 *
 	 * @param array $config Array of config specific to this component.
 	 */
-	public function __construct( array $config ) {
+	public function __construct( array $config = [] ) {
 		$this->config = $config;
 	}
 
