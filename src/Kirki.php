@@ -33,6 +33,7 @@ class Kirki extends Component {
 	const ALPHA           = 'alpha';
 	const CAPABILITY      = 'capability';
 	const CHOICES         = 'choices';
+	const CHOICE          = 'choice';
 	const CONFIG          = 'config';
 	const DEFAULT_VALUE   = 'default';
 	const DESCRIPTION     = 'description';
