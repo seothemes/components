@@ -44,7 +44,7 @@ final class Theme {
 	 */
 	public static function setup( array $config ) {
 		foreach ( $config as $class_name => $class_specific_config ) {
-			if ( class_exists( $class_name ) ) {
+			if ( method_exists( $class_name, 'init' ) ) {
 				$class = new $class_name( $class_specific_config );
 				$class->init();
 			}
