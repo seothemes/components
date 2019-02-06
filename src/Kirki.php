@@ -150,7 +150,7 @@ class Kirki extends Component {
 	 * @return void
 	 */
 	public function add_config() {
-		\Kirki::add_config( CHILD_THEME_HANDLE, $this->config[ self::CONFIG ] );
+		\Kirki::add_config( $this->config[ self::CONFIG ][ self::ID ], $this->config[ self::CONFIG ] );
 	}
 
 	/**
