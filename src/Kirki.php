@@ -17,14 +17,30 @@ namespace SeoThemes\Core;
  * Example config (usually located at config/defaults.php):
  *
  * ```
- * $core_example = [
- *     Kirki::SUB_CONFIG => [
- *         Kirki::KEY => 'value',
+ * $core_kirki = [
+ *     Kirki::CONFIG   => [
+ *         'id'          => 'theme_name',
+ *         'capability'  => 'edit_theme_options',
+ *         'option_type' => 'theme_mod',
+ *     ],
+ *     Kirki::SECTIONS => [
+ *         [
+ *             Kirki::ID    => 'general',
+ *             Kirki::TITLE => __( 'General Settings', 'textdomain' ),
+ *         ],
+ *     ],
+ *     Kirki::FIELDS => [
+ *         [
+ *             'type'     => 'text',
+ *             'settings' => 'license',
+ *             'section'  => 'general',
+ *             'label'    => __( 'License key', 'textdomain' ),
+ *         ],
  *     ],
  * ];
  *
  * return [
- *     Kirki::class => $core_example,
+ *     Kirki::class => $core_kirki,
  * ];
  * ```
  */
@@ -117,7 +133,7 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Description of expected behavior.
+	 * Sets the CSS output method.
 	 *
 	 * @since 1.0.0
 	 *
@@ -170,9 +186,9 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds custom styles to the WordPress Customizer.
+	 * Adds custom inline styles to Customizer screen.
 	 *
-	 * @since  1.2.0
+	 * @since  1.0.0
 	 *
 	 * @return void
 	 */
@@ -181,18 +197,22 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * This function adds some styles to the WordPress Customizer
+	 * Adds custom inline scripts to Customizer screen.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
 	 */
 	public function scripts() {
 		echo $this->config[ self::SCRIPTS ];
 	}
 
 	/**
-	 * Example method.
+	 * Adds Kirki panels.
 	 *
-	 * @since 3.3.0
+	 * @since 1.0.0
 	 *
-	 * @param array $config Components sub config.
+	 * @param array $config Kirki panels config.
 	 *
 	 * @return void
 	 */
@@ -203,11 +223,11 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Example method.
+	 * Adds Kirki sections.
 	 *
-	 * @since 3.3.0
+	 * @since 1.0.0
 	 *
-	 * @param array $config Components sub config.
+	 * @param array $config Kirki sections config.
 	 *
 	 * @return void
 	 */
@@ -218,17 +238,17 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Example method.
+	 * Adds Kirki fields.
 	 *
-	 * @since 3.3.0
+	 * @since 1.0.0
 	 *
-	 * @param array $config Components sub config.
+	 * @param array $config Kirki fields config.
 	 *
 	 * @return void
 	 */
 	protected function add_fields( $config ) {
 		foreach ( $config as $field => $args ) {
-			\Kirki::add_field( CHILD_THEME_HANDLE, $args );
+			\Kirki::add_field( $this->config[ self::CONFIG ][ self::ID ], $args );
 		}
 	}
 }
