@@ -45,7 +45,7 @@ namespace SeoThemes\Core;
  *             Customizer::SETTINGS      => 'single_post_featured_image',
  *             Customizer::LABEL         => 'Display featured image',
  *             Customizer::SECTION       => 'single_posts',
- *             Customizer::DEFAULT_VALUE => true,
+ *             Customizer::DEFAULTS => true,
  *         ],
  *     ],
  * ];
@@ -69,7 +69,7 @@ class Customizer extends Component {
 	const SETTING_TYPE         = 'type';
 	const CAPABILITY           = 'capability';
 	const THEME_SUPPORTS       = 'theme_supports';
-	const DEFAULT_VALUE        = 'default';
+	const DEFAULTS        = 'default';
 	const TRANSPORT            = 'transport';
 	const VALIDATE_CALLBACK    = 'validate_callback';
 	const SANITIZE_CALLBACK    = 'sanitize_callback';

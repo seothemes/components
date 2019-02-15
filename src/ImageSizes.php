@@ -57,7 +57,7 @@ class ImageSizes extends Component {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @link https://developer.wordpress.org/reference/functions/remove_image_size/
+	 * @link  https://developer.wordpress.org/reference/functions/remove_image_size/
 	 *
 	 * @return void
 	 */
@@ -76,7 +76,7 @@ class ImageSizes extends Component {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @link https://developer.wordpress.org/reference/functions/add_image_size/
+	 * @link  https://developer.wordpress.org/reference/functions/add_image_size/
 	 *
 	 * @param array $image_sizes Array of image sizes to add.
 	 *

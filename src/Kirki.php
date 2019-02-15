@@ -51,7 +51,7 @@ class Kirki extends Component {
 	const CHOICES         = 'choices';
 	const CHOICE          = 'choice';
 	const CONFIG          = 'config';
-	const DEFAULT_VALUE   = 'default';
+	const DEFAULTS        = 'default';
 	const DESCRIPTION     = 'description';
 	const ELEMENT         = 'element';
 	const EXCLUDE         = 'exclude';

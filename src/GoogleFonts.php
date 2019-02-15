@@ -36,8 +36,8 @@ namespace SeoThemes\Core;
 class GoogleFonts extends Component {
 
 	const ENQUEUE = 'enqueue';
-	const HANDLE = 'google-fonts';
-	const URL = '//fonts.googleapis.com/css?family=';
+	const HANDLE  = 'google-fonts';
+	const URL     = '//fonts.googleapis.com/css?family=';
 
 	/**
 	 * Add action to enqueue Google Fonts when this component is in use.

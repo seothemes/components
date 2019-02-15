@@ -36,7 +36,7 @@ final class Theme {
 	 * } );
 	 * ```
 	 *
-	 * @param array $config All theme-specific configuration.
+	 * @param array $config Project-specific configuration.
 	 *
 	 * @return void
 	 *

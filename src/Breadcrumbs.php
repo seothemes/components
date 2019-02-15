@@ -35,22 +35,22 @@ namespace SeoThemes\Core;
  */
 class Breadcrumbs extends Component {
 
-	const HOME = 'home';
-	const SEP = 'sep';
-	const LIST_SEP = 'list_sep';
-	const PREFIX = 'prefix';
-	const SUFFIX = 'suffix';
+	const HOME                     = 'home';
+	const SEP                      = 'sep';
+	const LIST_SEP                 = 'list_sep';
+	const PREFIX                   = 'prefix';
+	const SUFFIX                   = 'suffix';
 	const HIERARCHICAL_ATTACHMENTS = 'heirarchial_attachments'; // Note: string value has typos in Genesis.
-	const HIERARCHICAL_CATEGORIES = 'heirarchial_categories'; // Note: string value has typos in Genesis.
-	const LABELS = 'labels';
-	const AUTHOR = 'author';
-	const CATERGORY = 'category';
-	const TAG = 'tag';
-	const DATE = 'date';
-	const SEARCH = 'search';
-	const TAX = 'tax';
-	const POST_TYPE = 'post_type';
-	const FOUROHFOUR = '404';
+	const HIERARCHICAL_CATEGORIES  = 'heirarchial_categories'; // Note: string value has typos in Genesis.
+	const LABELS                   = 'labels';
+	const AUTHOR                   = 'author';
+	const CATERGORY                = 'category';
+	const TAG                      = 'tag';
+	const DATE                     = 'date';
+	const SEARCH                   = 'search';
+	const TAX                      = 'tax';
+	const POST_TYPE                = 'post_type';
+	const FOUROHFOUR               = '404';
 
 	/**
 	 * Initialize class.
