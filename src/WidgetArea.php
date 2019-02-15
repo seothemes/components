@@ -73,13 +73,13 @@ class WidgetArea extends Component {
 	 * @return void
 	 */
 	public function init() {
+		if ( array_key_exists( self::UNREGISTER, $this->config ) ) {
+			$this->unregister( $this->config[ self::UNREGISTER ] );
+		}
+
 		if ( array_key_exists( self::REGISTER, $this->config ) ) {
 			$this->register( $this->config[ self::REGISTER ] );
 			$this->display( $this->config[ self::REGISTER ] );
-		}
-
-		if ( array_key_exists( self::UNREGISTER, $this->config ) ) {
-			$this->unregister( $this->config[ self::UNREGISTER ] );
 		}
 	}
 
