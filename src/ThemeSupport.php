@@ -4,36 +4,14 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Craig Simpson <craig@craigsimpson.scot>
- * @copyright 2018, D2 Themes
+ * @copyright 2019, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
 namespace SeoThemes\Core;
 
 /**
- * Add or remove theme support for given features.
- *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * use SeoThemes\Core\ThemeSupport;
- *
- * $core_theme_support = [
- *     ThemeSupport::ADD => [
- *         'html5', [
- *             'comment-form',
- *             'comment-list',
- *             'gallery',
- *             'caption',
- *         ],
- *     ]
- * ];
- *
- * return [
- *     ThemeSupport::class => $core_theme_support,
- * ];
- * ```
+ * Class ThemeSupport
  *
  * @package SeoThemes\Core
  */
@@ -48,11 +26,11 @@ class ThemeSupport extends Component {
 	 * @return void
 	 */
 	public function init() {
-		if ( array_key_exists( self::REMOVE, $this->config ) ) {
+		if ( isset( $this->config[ self::REMOVE ] ) ) {
 			$this->remove( $this->config[ self::REMOVE ] );
 		}
 
-		if ( array_key_exists( self::ADD, $this->config ) ) {
+		if ( isset( $this->config[ self::ADD ] ) ) {
 			$this->add( $this->config[ self::ADD ] );
 		}
 	}
@@ -68,7 +46,11 @@ class ThemeSupport extends Component {
 	 */
 	protected function add( array $features ) {
 		foreach ( $features as $feature => $args ) {
-			\add_theme_support( $feature, $args );
+			if ( is_int( $feature ) ) {
+				add_theme_support( $args );
+			} else {
+				add_theme_support( $feature, $args );
+			}
 		}
 	}
 

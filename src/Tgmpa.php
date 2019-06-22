@@ -4,62 +4,32 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Craig Simpson <craig@craigsimpson.scot>
- * @copyright 2018, D2 Themes
+ * @copyright 2019, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
 namespace SeoThemes\Core;
 
 /**
- * Add recommended plugins to TGM Plugin Activation through configuration.
+ * Class Tgmpa
  *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * use SeoThemes\Core\PluginActivation;
- *
- * $core_plugins = [
- *     PluginActivation::REGISTER => [
- *         [
- *             PluginActivation::NAME     => 'Genesis Widget Column Classes',
- *             PluginActivation::SLUG     => 'genesis-widget-column-classes',
- *             PluginActivation::REQUIRED => false,
- *         ],
- *         [
- *             PluginActivation::NAME     => 'Icon Widget',
- *             PluginActivation::SLUG     => 'icon-widget',
- *             PluginActivation::REQUIRED => false,
- *         ],
- *     ],
- *     PluginActivation::SETTINGS => [
- *         PluginActivation::SETTING_HAS_NOTICES => true,
- *         PluginActivation::SETTING_DISMISSABLE => false,
- *     ],
- * ];
- *
- * return [
- *     PluginActivation::class => $core_plugins,
- * ];
- * ```
+ * @package SeoThemes\Core
  */
-class PluginActivation extends Component {
+class Tgmpa extends Component {
 
-	const REGISTER = 'register';
-
-	const NAME = 'name';
-	const SLUG = 'slug';
-	const REQUIRED = 'required';
-
-	const SETTINGS = 'settings';
-	const SETTING_ID = 'id';
+	const REGISTER             = 'register';
+	const NAME                 = 'name';
+	const SLUG                 = 'slug';
+	const REQUIRED             = 'required';
+	const SETTINGS             = 'settings';
+	const SETTING_ID           = 'id';
 	const SETTING_DEFAULT_PATH = 'default_path';
-	const SETTING_MENU = 'menu';
-	const SETTING_HAS_NOTICES = 'has_notices';
-	const SETTING_DISMISSABLE = 'dismissable';
-	const SETTING_DISMISS_MSG = 'dismiss_msg';
+	const SETTING_MENU         = 'menu';
+	const SETTING_HAS_NOTICES  = 'has_notices';
+	const SETTING_DISMISSABLE  = 'dismissable';
+	const SETTING_DISMISS_MSG  = 'dismiss_msg';
 	const SETTING_IS_AUTOMATIC = 'is_automatic';
-	const SETTING_MESSAGE = 'message';
+	const SETTING_MESSAGE      = 'message';
 
 	/**
 	 * Array of plugins.
@@ -88,7 +58,7 @@ class PluginActivation extends Component {
 	 */
 	public function init() {
 
-		if ( class_exists( 'TGM_Plugin_Activation' ) && array_key_exists( self::REGISTER, $this->config ) ) {
+		if ( class_exists( 'TGM_Plugin_Activation' ) && isset( $this->config[ self::REGISTER ] ) ) {
 
 			// Set defaults.
 			$this->defaults = [
@@ -141,6 +111,6 @@ class PluginActivation extends Component {
 	 * @return array
 	 */
 	protected function get_settings() {
-		return array_key_exists( self::SETTINGS, $this->config ) ? array_merge( $this->defaults, $this->config[ self::SETTINGS ] ) : $this->defaults;
+		return isset( $this->config[ self::SETTINGS ] ) ? array_merge( $this->defaults, $this->config[ self::SETTINGS ] ) : $this->defaults;
 	}
 }

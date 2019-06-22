@@ -4,54 +4,24 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Craig Simpson <craig@craigsimpson.scot>
- * @copyright 2018, D2 Themes
+ * @copyright 2019, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
 namespace SeoThemes\Core;
 
 /**
- * Register Kirki fields, sections and panels through configuration.
+ * Class Kirki
  *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * $core_kirki = [
- *     Kirki::CONFIG   => [
- *         'id'          => 'theme_name',
- *         'capability'  => 'edit_theme_options',
- *         'option_type' => 'theme_mod',
- *     ],
- *     Kirki::SECTIONS => [
- *         [
- *             Kirki::ID    => 'general',
- *             Kirki::TITLE => __( 'General Settings', 'textdomain' ),
- *         ],
- *     ],
- *     Kirki::FIELDS => [
- *         [
- *             'type'     => 'text',
- *             'settings' => 'license',
- *             'section'  => 'general',
- *             'label'    => __( 'License key', 'textdomain' ),
- *         ],
- *     ],
- * ];
- *
- * return [
- *     Kirki::class => $core_kirki,
- * ];
- * ```
+ * @package SeoThemes\Core
  */
 class Kirki extends Component {
 
 	const ALPHA           = 'alpha';
 	const CAPABILITY      = 'capability';
 	const CHOICES         = 'choices';
-	const CHOICE          = 'choice';
 	const CONFIG          = 'config';
-	const DEFAULTS        = 'default';
+	const DEFAULT_VALUE   = 'default';
 	const DESCRIPTION     = 'description';
 	const ELEMENT         = 'element';
 	const EXCLUDE         = 'exclude';
@@ -95,65 +65,61 @@ class Kirki extends Component {
 	 * @return void
 	 */
 	public function init() {
-		if ( array_key_exists( self::METHOD, $this->config ) ) {
-			add_filter( 'kirki/dynamic_css/method', [ $this, 'write_to_file' ] );
-		}
+		add_filter( 'kirki_telemetry', '__return_false' );
+		add_filter( 'kirki_config', [ $this, 'remove_loader' ] );
+		add_filter( 'kirki/dynamic_css/method', [ $this, 'write_to_file' ] );
 
-		if ( array_key_exists( self::LOADER, $this->config ) ) {
-			add_filter( 'kirki_config', [ $this, 'remove_loader' ] );
-		}
-
-		if ( array_key_exists( self::CONFIG, $this->config ) ) {
+		if ( isset( $this->config[ self::CONFIG ] ) ) {
 			add_action( 'after_setup_theme', [ $this, 'add_config' ] );
 		}
 
-		if ( array_key_exists( self::REMOVE, $this->config ) ) {
+		if ( isset( $this->config[ self::REMOVE ] ) ) {
 			add_action( 'customize_register', [ $this, 'remove_defaults' ], 99 );
 		}
 
-		if ( array_key_exists( self::STYLES, $this->config ) ) {
+		if ( isset( $this->config[ self::STYLES ] ) ) {
 			add_action( 'customize_controls_print_styles', [ $this, 'styles' ], 99 );
 		}
 
-		if ( array_key_exists( self::SCRIPTS, $this->config ) ) {
+		if ( isset( $this->config[ self::SCRIPTS ] ) ) {
 			add_action( 'customize_controls_print_scripts', [ $this, 'scripts' ], 999 );
 		}
 
-		if ( array_key_exists( self::PANELS, $this->config ) ) {
+		if ( isset( $this->config[ self::PANELS ] ) ) {
 			$this->add_panels( $this->config[ self::PANELS ] );
 		}
 
-		if ( array_key_exists( self::SECTIONS, $this->config ) ) {
+		if ( isset( $this->config[ self::SECTIONS ] ) ) {
 			$this->add_sections( $this->config[ self::SECTIONS ] );
 		}
 
-		if ( array_key_exists( self::FIELDS, $this->config ) ) {
+		if ( isset( $this->config[ self::FIELDS ] ) ) {
 			$this->add_fields( $this->config[ self::FIELDS ] );
 		}
 	}
 
 	/**
-	 * Sets the CSS output method.
+	 * Removes Kirki loader image.
+	 *
+	 * @since  1.1.0
+	 *
+	 * @return array
+	 */
+	function remove_loader() {
+		return wp_parse_args( [
+			'disable_loader' => true,
+		] );
+	}
+
+	/**
+	 * Write custom CSS to file.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return string
 	 */
 	public function write_to_file() {
-		return $this->config[ self::METHOD ];
-	}
-
-	/**
-	 * Removes Kirki loader image.
-	 *
-	 * @since  1.2.0
-	 *
-	 * @param  $config the configuration array
-	 *
-	 * @return array
-	 */
-	public function remove_loader( $config ) {
-		return wp_parse_args( $this->config[ self::LOADER ], $config );
+		return 'file';
 	}
 
 	/**
@@ -166,7 +132,7 @@ class Kirki extends Component {
 	 * @return void
 	 */
 	public function add_config() {
-		\Kirki::add_config( $this->config[ self::CONFIG ][ self::ID ], $this->config[ self::CONFIG ] );
+		\Kirki::add_config( wp_get_theme()->get( 'TextDomain' ), $this->config[ self::CONFIG ] );
 	}
 
 	/**
@@ -186,9 +152,9 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds custom inline styles to Customizer screen.
+	 * Adds custom styles to the WordPress Customizer.
 	 *
-	 * @since  1.0.0
+	 * @since  1.2.0
 	 *
 	 * @return void
 	 */
@@ -197,9 +163,9 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds custom inline scripts to Customizer screen.
+	 * Adds custom scripts to the WordPress Customizer.
 	 *
-	 * @since 1.0.0
+	 * @since  1.2.0
 	 *
 	 * @return void
 	 */
@@ -208,11 +174,11 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds Kirki panels.
+	 * Adds Customizer panels
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $config Kirki panels config.
+	 * @param array $config Components sub config.
 	 *
 	 * @return void
 	 */
@@ -223,11 +189,11 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds Kirki sections.
+	 * Adds Customizer sections.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $config Kirki sections config.
+	 * @param array $config Components sub config.
 	 *
 	 * @return void
 	 */
@@ -238,17 +204,17 @@ class Kirki extends Component {
 	}
 
 	/**
-	 * Adds Kirki fields.
+	 * Adds Customizer fields.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $config Kirki fields config.
+	 * @param array $config Components sub config.
 	 *
 	 * @return void
 	 */
 	protected function add_fields( $config ) {
 		foreach ( $config as $field => $args ) {
-			\Kirki::add_field( $this->config[ self::CONFIG ][ self::ID ], $args );
+			\Kirki::add_field( wp_get_theme()->get( 'TextDomain' ), $args );
 		}
 	}
 }

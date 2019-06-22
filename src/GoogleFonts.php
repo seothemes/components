@@ -4,32 +4,14 @@
  *
  * @package   SeoThemes\Core
  * @author    SEO Themes <seothemeswp@gmail.com>
- * @author    Craig Simpson <craig@craigsimpson.scot>
- * @copyright 2018, D2 Themes
+ * @copyright 2019, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
 namespace SeoThemes\Core;
 
 /**
- * Enqueue Google Fonts through configuration.
- *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * use SeoThemes\Core\GoogleFonts;
- *
- * $core_google_fonts = [
- *     GoogleFonts::ENQUEUE => [
- *         'Source+Sans+Pro:400,600,700',
- *         'Montserrat:400,600',
- *     ],
- * ];
- *
- * return [
- *     GoogleFonts::class => $core_google_fonts,
- * ];
- * ```
+ * Class GoogleFonts
  *
  * @package SeoThemes\Core
  */
@@ -47,9 +29,9 @@ class GoogleFonts extends Component {
 	 * @return void
 	 */
 	public function init() {
-		if ( array_key_exists( self::ENQUEUE, $this->config ) ) {
-			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
-		}
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
+		add_action( 'enqueue_block_editor_assets', [$this, 'enqueue_google_fonts' ] );
+
 	}
 
 	/**
@@ -71,11 +53,7 @@ class GoogleFonts extends Component {
 	 * @return string
 	 */
 	protected function get_google_fonts_url() {
-		foreach ( $this->config[ self::ENQUEUE ] as $google_font ) {
-			$google_fonts[] = $google_font;
-		}
-
-		return self::URL . implode( '|', $google_fonts );
+		return self::URL . implode( '|', $this->config );
 	}
 
 	/**

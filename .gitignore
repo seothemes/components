@@ -3,6 +3,3 @@ vendor/
 
 # Ignore composer.lock file.
 composer.lock
-
-# Ignore IDE generated files.
-.idea

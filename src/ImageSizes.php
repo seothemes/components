@@ -12,35 +12,7 @@
 namespace SeoThemes\Core;
 
 /**
- * Add or remove image sizes through configuration.
- *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * use SeoThemes\Core\ImageSizes;
- *
- * $core_image_sizes = [
- *     ImageSizes::REMOVE => [
- *         'example_image_size',
- *     ],
- *     ImageSizes::ADD    => [
- *         'featured' => [
- *             ImageSizes::WIDTH  => 620,
- *             ImageSizes::HEIGHT => 380,
- *             ImageSizes::CROP   => true,
- *         ],
- *         'hero'        => [
- *             ImageSizes::WIDTH  => 1280,
- *             ImageSizes::HEIGHT => 720,
- *             ImageSizes::CROP   => true,
- *         ],
- *     ],
- * ];
- *
- * return [
- *     ImageSizes::class => $core_image_sizes,
- * ];
- * ```
+ * Class ImageSizes
  *
  * @package SeoThemes\Core
  */
@@ -48,9 +20,6 @@ class ImageSizes extends Component {
 
 	const ADD    = 'add';
 	const REMOVE = 'remove';
-	const WIDTH  = 'width';
-	const HEIGHT = 'height';
-	const CROP   = 'crop';
 
 	/**
 	 * Add or remove image sizes through configuration.
@@ -62,11 +31,11 @@ class ImageSizes extends Component {
 	 * @return void
 	 */
 	public function init() {
-		if ( array_key_exists( self::REMOVE, $this->config ) ) {
+		if ( isset( $this->config[ self::REMOVE ] ) ) {
 			array_map( 'remove_image_size', $this->config[ self::REMOVE ] );
 		}
 
-		if ( array_key_exists( self::ADD, $this->config ) ) {
+		if ( isset( $this->config[ self::ADD ] ) ) {
 			$this->add_image_sizes( $this->config[ self::ADD ] );
 		}
 	}
@@ -84,8 +53,7 @@ class ImageSizes extends Component {
 	 */
 	public function add_image_sizes( $image_sizes ) {
 		foreach ( $image_sizes as $name => $args ) {
-			$crop = ( array_key_exists( self::CROP, $args ) ? $args[ self::CROP ] : false );
-			add_image_size( $name, $args[ self::WIDTH ], $args[ self::HEIGHT ], $crop );
+			add_image_size( $name, $args[0], $args[1], $args[2] );
 		}
 	}
 }

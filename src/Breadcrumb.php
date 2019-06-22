@@ -4,44 +4,26 @@
  *
  * @package   SeoThemes\Core
  * @author    Lee Anthony <seothemeswp@gmail.com>
- * @author    Craig Simpson <craig@craigsimpson.scot>
- * @copyright 2018, D2 Themes
+ * @copyright 2019, SEO Themes
  * @license   GPL-3.0-or-later
  */
 
 namespace SeoThemes\Core;
 
 /**
- * Merges configured breadcrumbs arguments with defaults.
- *
- * Example config (usually located at config/defaults.php):
- *
- * ```
- * use SeoThemes\Core\GenesisBreadcrumbs;
- *
- * $core_genesis_breadcrumbs = [
- *     GenesisBreadcrumbs::SEP    => ' → ',
- *     GenesisBreadcrumbs::LABELS => [
- *         GenesisBreadcrumbs::PREFIX => '',
- *     ],
- * ];
- *
- * return [
- *     GenesisBreadcrumbs::class => $core_genesis_breadcrumbs,
- * ];
- * ```
+ * Class Breadcrumb
  *
  * @package SeoThemes\Core
  */
-class Breadcrumbs extends Component {
+class Breadcrumb extends Component {
 
 	const HOME                     = 'home';
 	const SEP                      = 'sep';
 	const LIST_SEP                 = 'list_sep';
 	const PREFIX                   = 'prefix';
 	const SUFFIX                   = 'suffix';
-	const HIERARCHICAL_ATTACHMENTS = 'heirarchial_attachments'; // Note: string value has typos in Genesis.
-	const HIERARCHICAL_CATEGORIES  = 'heirarchial_categories'; // Note: string value has typos in Genesis.
+	const HIERARCHICAL_ATTACHMENTS = 'heirarchial_attachments';
+	const HIERARCHICAL_CATEGORIES  = 'heirarchial_categories';
 	const LABELS                   = 'labels';
 	const AUTHOR                   = 'author';
 	const CATERGORY                = 'category';
