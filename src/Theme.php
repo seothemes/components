@@ -73,7 +73,8 @@ final class Theme {
 
 		foreach ( $sub_configs as $sub_config ) {
 			$name     = basename( $sub_config, '.php' );
-			$override = get_stylesheet_directory() . "/config/$name.php";
+			$path     = apply_filters( 'core_config_dir', get_stylesheet_directory() );
+			$override = $path . "/config/$name.php";
 
 			if ( is_readable( $override ) ) {
 				$sub_config = $override;
