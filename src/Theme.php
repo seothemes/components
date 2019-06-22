@@ -70,11 +70,11 @@ final class Theme {
 	public static function create_config( $config_dir ) {
 		$config      = [];
 		$sub_configs = glob( $config_dir . '*.php' );
+		$config_dir  = apply_filters( __NAMESPACE__ . '\dir', get_stylesheet_directory() );
 
 		foreach ( $sub_configs as $sub_config ) {
 			$name     = basename( $sub_config, '.php' );
-			$path     = apply_filters( 'core_config_dir', get_stylesheet_directory() );
-			$override = $path . "/config/$name.php";
+			$override = $config_dir . "/config/$name.php";
 
 			if ( is_readable( $override ) ) {
 				$sub_config = $override;
