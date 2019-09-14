@@ -1,5 +1,5 @@
 {
-  "name": "seothemes/core",
+  "name": "seothemes/components",
   "description": "A config-based composer package that provides a set of modules to extend Genesis child theme development.",
   "type": "library",
   "license": "GPL-3.0-or-later",
